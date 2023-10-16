@@ -125,6 +125,22 @@ async function run() {
       res.send(result)
     })
 
+
+    // update a single user in backend
+    app.patch('/user', async(req, res)=>{
+       const user = req.body;
+       const filter = {email : user.email}
+       const updatedDoc = {
+        $set:{
+          lastLoggedAt: user. lastLoggedAt
+        }
+       }
+
+       const result = await userCollection.updateOne(filter,updatedDoc,);
+       res.send(result)
+
+    })
+
    
 
 
